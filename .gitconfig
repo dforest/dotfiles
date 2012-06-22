@@ -1,0 +1,22 @@
+[user]
+  name = Keita Mori
+  email = keita011@gmail.com
+[color]
+  ui = auto
+[core]
+  editor = /usr/bin/vim
+[merge]
+  keepBackup = false;
+  tool = p4merge
+[mergetool "p4merge"]
+  cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  keepTemporaries = false
+  trustExitCode = false
+  keepBackup = false
+[diff]
+#  external = p4diff
+[alias]
+  nffmerge = merge --no-ff
+  logg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
+[heroku]
+  account = personal
