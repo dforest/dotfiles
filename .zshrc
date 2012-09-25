@@ -73,6 +73,7 @@ alias la="ls -a"
 alias ll="ls -l"
 
 #git
+alias gb="git branch"
 alias gst="git status -s -b"
 alias glgg="git logg"
 alias glg='git logg | head'
