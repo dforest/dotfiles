@@ -54,6 +54,7 @@ NeoBundle 'tpope/vim-endwise.git'
 NeoBundle 'vim-scripts/dbext.vim'
 
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'taq/vim-rspec'
 
