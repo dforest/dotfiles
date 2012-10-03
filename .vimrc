@@ -37,17 +37,30 @@ imap <C-K> <ESC>"*pa
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 
-" pathogenでftdetectなどをloadさせるために一度ファイルタイプ判定をoff
+" NeoBundleために一度ファイルタイプ判定をoff
+set nocompatible
 filetype off
-syntax off
-filetype indent off
-" pathogen.vimによってbundle配下のpluginをpathに加える
-call pathogen#runtime_append_all_bundles()
-" call pathogen#helptags()
-" set helpfile=$VIMRUNTIME/doc/help.txt
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('~/.vim/bundle/'))
+endif
+
+"NeoBundle
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc'
+
+NeoBundle 'tpope/vim-endwise.git'
+NeoBundle 'vim-scripts/dbext.vim'
+
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'taq/vim-rspec'
 
 " ファイルタイプ判定をon
-filetype plugin on
+filetype plugin indent on
+filetype indent on
+syntax on
 
 "quickrun設定
 let g:quickrun_config = {}
