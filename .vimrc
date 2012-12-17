@@ -40,12 +40,6 @@ command! Rv source $MYVIMRC
 " NeoBundleために一度ファイルタイプ判定をoff
 set nocompatible
 filetype off
-syntax off
-filetype indent off
-" pathogen.vimによってbundle配下のpluginをpathに加える
-" call pathogen#runtime_append_all_bundles()
-" call pathogen#helptags()
-" set helpfile=$VIMRUNTIME/doc/help.txt
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
