@@ -13,8 +13,18 @@ setopt list_packed        #補完候補を詰める
 
 # Prompt
 PROMPT="%m:%1~ %n%# "
-RPROMPT="[%~]"
+#RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ?(y/n)"
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%b) '
+zstyle ':vcs_info:*' actionformats '(%b|%a) '
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="[%1(v|%F{green}%1v%f|)%~]"
 
 # Terminal title
 case "${TERM}" in
@@ -63,12 +73,14 @@ alias la="ls -a"
 alias ll="ls -l"
 
 #git
+alias gb="git branch"
 alias gst="git status -s -b"
 alias glgg="git logg"
 alias glg='git logg | head'
 
 #mysql
 alias mysql=/usr/local/mysql/bin/mysql
+alias mysqldump=/usr/local/mysql/bin/mysqldump
 alias mysqladmin=/usr/local/mysql/bin/mysqladmin
 
 # play! frame work
@@ -83,3 +95,7 @@ alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g --
 
 # local固有設定
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+#PATH
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/bashfiles

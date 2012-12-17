@@ -1,10 +1,11 @@
 [user]
-  name = Keita Mori
-  email = keita011@gmail.com
+	name = Keita Mori
+	email = keita011@gmail.com
 [color]
   ui = auto
 [core]
   editor = /usr/bin/vim
+	excludesfile = /Users/keita/.gitignore_global
 [merge]
   keepBackup = false;
   tool = p4merge
@@ -20,3 +21,9 @@
   logg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
 [heroku]
   account = personal
+[difftool "sourcetree"]
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
