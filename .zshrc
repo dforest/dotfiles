@@ -99,4 +99,4 @@ alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g --
 
 #PATH
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/bashfiles
+PATH=$PATH:$HOME/dotfiles/bin
