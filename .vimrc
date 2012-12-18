@@ -58,6 +58,8 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'taq/vim-rspec'
 
+NeoBundle 'nathanaelkane/vim-indent-guides.git'
+
 " ファイルタイプ判定をon
 filetype plugin indent on
 filetype indent on
@@ -132,9 +134,9 @@ match ZenkakuSpace /　/
 set cursorline
 "カレントウィンドウにのみ罫線を引く
 augroup cch
- autocmd! cch
- autocmd WinLeave * set nocursorline
- autocmd WinEnter,Bufread * set cursorline
+autocmd! cch
+autocmd WinLeave * set nocursorline
+autocmd WinEnter,Bufread * set cursorline
 augroup END
 
 :hi clear CursorLine
@@ -145,6 +147,10 @@ highlight CursorLine ctermbg=black guibg=black
 :set lazyredraw
 "高速ターミナル接続を行う
 :set ttyfast
+
+"tab-indent-guide
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
 
 "--------------------------------------------------------------------------
 "インデント Indent
