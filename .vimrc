@@ -2,6 +2,7 @@
 "基本設定 Basics
 "--------------------------------------------------------------------------
 let mapleader=","                 "キーマップリーダー
+set shell=/bin/zsh                "vimのshellをzshに設定
 set scrolloff=5                   "スクロール時の余白確保
 set textwidth=0                   "一行に長い文章を書いても自動折り返ししない
 set nobackup                      "バックアップを取らない
