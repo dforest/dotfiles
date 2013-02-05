@@ -90,6 +90,9 @@ alias p=play
 alias r=rails
 alias gs='bundle exec guard start'
 
+# invoke prefered editor alias
+alias e="subl"
+
 # macvim デフォルトでgvimを起動
 #alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g "$@"'
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent "$@"'
