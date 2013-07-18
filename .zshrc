@@ -76,23 +76,40 @@ ls_abbrev() {
 
 # 空Enterで`ls`と`git status`を打つ
 # http://qiita.com/yuyuchu3333/items/e9af05670c95e2cc5b4d
+# function do_enter() {
+#     if [ -n "$BUFFER" ]; then
+#         zle accept-line
+#         return 0
+#     fi
+#     echo
+#     ls_abbrev
+#     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+#         echo
+#         echo -e "\e[0;33m--- git status ---\e[0m"
+#         git status -sb
+#     fi
+#     zle reset-prompt
+#     return 0
+# }
+# zle -N do_enter
+# bindkey '^m' do_enter
+
+# 空Enterで`git branch`を打つ
 function do_enter() {
     if [ -n "$BUFFER" ]; then
         zle accept-line
         return 0
     fi
-    echo
-    ls_abbrev
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
         echo
-        echo -e "\e[0;33m--- git status ---\e[0m"
-        git status -sb
+        git branch
     fi
     zle reset-prompt
     return 0
 }
 zle -N do_enter
 bindkey '^m' do_enter
+
 
 # nvm と指定されたバージョンの Node.js がインストール済みの場合だけ
 # 設定を有効にする
