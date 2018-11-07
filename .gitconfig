@@ -6,6 +6,8 @@
 [core]
   editor = /usr/bin/vim
 	excludesfile = /Users/keita/.gitignore_global
+	precomposeunicode = true
+	quotepath = false
 [merge]
   keepBackup = false;
   tool = p4merge
