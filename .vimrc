@@ -38,29 +38,6 @@ imap <C-K> <ESC>"*pa
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 
-" NeoBundleために一度ファイルタイプ判定をoff
-set nocompatible
-filetype off
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-
-"NeoBundle
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-
-NeoBundle 'tpope/vim-endwise.git'
-NeoBundle 'vim-scripts/dbext.vim'
-
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'taq/vim-rspec'
-
-NeoBundle 'nathanaelkane/vim-indent-guides.git'
-
 " ファイルタイプ判定をon
 filetype plugin indent on
 filetype indent on

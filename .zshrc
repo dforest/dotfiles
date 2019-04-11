@@ -52,6 +52,7 @@ bindkey "^N" history-beginning-search-forward-end
 # Command alias ショートカットコマンド設定
 alias la="ls -a"
 alias ll="ls -l"
+alias lla="ls -la"
 
 #git
 alias gb="git branch"
@@ -67,7 +68,7 @@ PATH=$PATH:/usr/local/mysql/bin
 alias r=rails
 
 # invoke prefered editor alias
-alias e="subl"
+# alias e="subl"
 
 ##
 # PATH
@@ -77,9 +78,13 @@ PATH=$PATH:$HOME/Development/bin
 PATH=$PATH:$HOME/Development/bin/sdk/platform-tools
 
 export CC=/usr/bin/gcc
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
-launchctl setenv JAVA8_HOME $JAVA8_HOME
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
+# export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
+# launchctl setenv JAVA8_HOME $JAVA8_HOME
+
+#homebrew-cask-versions
+export JAVA_HOME=`/usr/libexec/java_home -v "12"`
+PATH=${JAVA_HOME}/bin:${PATH}
 
 if [ -x "`which go`" ]; then
   export GOROOT=`go env GOROOT`
