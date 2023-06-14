@@ -53,6 +53,7 @@ bindkey "^N" history-beginning-search-forward-end
 alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -la"
+alias cdd="clear; cd ~/Development; ll"
 
 #git
 alias gb="git branch"
@@ -60,15 +61,18 @@ alias gst="git status -s -b"
 alias glgg="git logg"
 alias glg='git logg | head'
 
-#mysql
-PATH=$PATH:/usr/local/mysql/bin
-
-
 # ruby on rails
 alias r=rails
 
+#python
+alias vact=". venv/bin/activate"
+alias vdeact="deactivate"
+
 # invoke prefered editor alias
-# alias e="subl"
+alias e="code"
+
+alias ez="e ~/.zshrc"
+alias sz="source ~/.zshrc"
 
 ##
 # PATH
@@ -82,8 +86,11 @@ export CC=/usr/bin/gcc
 # export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
 # launchctl setenv JAVA8_HOME $JAVA8_HOME
 
+#mysql
+PATH=$PATH:/usr/local/mysql/bin
+
 #homebrew-cask-versions
-export JAVA_HOME=`/usr/libexec/java_home -v "12"`
+export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
 PATH=${JAVA_HOME}/bin:${PATH}
 
 if [ -x "`which go`" ]; then
@@ -92,8 +99,18 @@ if [ -x "`which go`" ]; then
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
+#Android
+export ANDROID_HOME=/Users/keita/Library/Android/sdk
+PATH=$PATH:$ANDROID_HOME/platform-tools
+
 #nvm
-if [[ -s $HOME/.nvm/nvm.sh ]] ; then source $HOME/.nvm/nvm.sh ; fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+NVMRC_PATH=".nvmrc"
+if [[ -a "$NVMRC_FILE" ]]; then
+	nvm use
+fi
 
 #node module
 PATH=$PATH:$HOME/node_modules/.bin
@@ -105,10 +122,16 @@ PATH=$PATH:$HOME/.eb/AWS-ElasticBeanstalk-CLI-2.3/eb/linux/python2.7/
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
-
+#pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/keita/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/keita/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/keita/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/keita/google-cloud-sdk/completion.zsh.inc'; fi
+
+# direnv
+eval "$(direnv hook zsh)"
